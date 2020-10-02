@@ -16,6 +16,12 @@ use App\Product;
 use App\TransferInOut;
 use Maatwebsite\Excel\Concerns\FromView;
 use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\WithEvents;
+use Maatwebsite\Excel\Concerns\WithMultipleSheets;
+use Maatwebsite\Excel\Events\BeforeExport;
+use Maatwebsite\Excel\Events\AfterSheet;
+use Maatwebsite\Excel\Sheet;
+use PhpOffice\PhpSpreadsheet\Style\Border;
 
 class ExportStock implements FromView,WithColumnFormatting, ShouldAutoSize
 {
@@ -35,6 +41,44 @@ class ExportStock implements FromView,WithColumnFormatting, ShouldAutoSize
         // dd($this->kpi_type_id);
     }
 
+
+
+    /*
+    public function registerEvents(): array
+    {
+        $styleArray = [
+            'font' => [
+                'bold' => true,
+            ]
+        ];
+
+        $styleArray2 = array(
+            'borders' => [
+                'outline' => [
+                    'style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_NONE,
+                    'color' => array('argb' => 'FFFF0000'),
+                ],
+            ],
+            'font' => [
+                'bold' => true,
+            ]
+        );
+        return [
+            // Handle by a closure.
+            AfterSheet::class => function (AfterSheet $event) use ($styleArray2) {
+                // $event->sheet->insertNewRowBefore(7, 2);
+                // $event->sheet->insertNewColumnBefore('A', 2);
+                $event->sheet->getStyle('B4:C4')->applyFromArray($styleArray2);
+                $event->sheet->getStyle('B7')->getBorders()->getTop()->applyFromArray( array( 'borderStyle' => Border::BORDER_DASHDOT, 'color' => array( 'rgb' => '808080' ) ) );
+
+                // $event->sheet->setCellValue('E27', '=SUM(E2:E26)');
+
+
+
+            },
+        ];
+    }
+    */
     public function view(): View
     {
         $now = now();
