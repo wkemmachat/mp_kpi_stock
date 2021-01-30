@@ -27,6 +27,7 @@ git push origin master
 
 #Make Controller
 php artisan make:controller ProductController
+php artisan make:controller PhpSpreadSheetController
 
 #Make Model
 php artisan make:model Product

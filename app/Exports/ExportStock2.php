@@ -30,7 +30,6 @@ class ExportStock implements FromView,WithColumnFormatting, WithEvents
     // protected $inOrOut;
     // protected $kpi_type_id;
 
-    use Exportable;
 
     public function __construct($request)
     {

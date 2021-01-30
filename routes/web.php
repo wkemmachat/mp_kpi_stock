@@ -116,6 +116,7 @@ Route::post('/exportProductCollectionQuery', 'ProductController@exportProductCol
 Route::post('/exportProductView', 'ProductController@exportProductView')->name('product.exportProductView');
 Route::post('/exportTransferInOut', 'TransferInOutController@exportTransferInOut')->name('transfer.exportTransferInOut');
 Route::post('/exportStock', 'StockRealTimeController@exportStock')->name('stock.exportStock');
+Route::post('/exportTestPHP', 'PhpSpreadSheetController@index')->name('phpExport.index');
 
 
 // KemLogin
