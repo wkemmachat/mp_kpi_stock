@@ -173,7 +173,7 @@
                                             <select name="product_running_id[]" class="form-control pull-right select2 input-medium" required >
                                                 <option value=""> -- Please Select Product -- </option>
                                                 @foreach ($products as $product)
-                                                    @if($product->stock_real_time != null && $product->stock_real_time->amount > 0){
+                                                    @if($product->stock_real_time != null ){
                                                             <option value="{{ $product->id }}">{{ $product->productId }} : {{ $product->productName }} , คงเหลือ {{ $product->stock_real_time->amount }} PCS</option>
                                                         }
                                                     @endif

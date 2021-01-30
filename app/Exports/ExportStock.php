@@ -23,7 +23,7 @@ use Maatwebsite\Excel\Events\AfterSheet;
 use Maatwebsite\Excel\Sheet;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 
-class ExportStock implements FromView,WithColumnFormatting, WithEvents
+class ExportStock implements FromView,WithColumnFormatting, ShouldAutoSize
 {
     // protected $startDate;
     // protected $endDate;
@@ -44,7 +44,7 @@ class ExportStock implements FromView,WithColumnFormatting, WithEvents
 
 
 
-
+    /*
     public function registerEvents(): array
     {
         $styleArray = [
@@ -69,10 +69,9 @@ class ExportStock implements FromView,WithColumnFormatting, WithEvents
             AfterSheet::class => function (AfterSheet $event) use ($styleArray2) {
                 // $event->sheet->insertNewRowBefore(7, 2);
                 // $event->sheet->insertNewColumnBefore('A', 2);
-                // $event->sheet->getStyle('B4:C4')->applyFromArray($styleArray2);
-                $event->sheet->getStyle('B7')->getBorders()->getTop()->applyFromArray( array( 'borderStyle' => Border::BORDER_THIN, 'color' => array( 'rgb' => '000000' ) ) );
+                $event->sheet->getStyle('B4:C4')->applyFromArray($styleArray2);
+                $event->sheet->getStyle('B7')->getBorders()->getTop()->applyFromArray( array( 'borderStyle' => Border::BORDER_DASHDOT, 'color' => array( 'rgb' => '808080' ) ) );
 
-                $event->sheet->getColumnDimension('D')->setWidth(30);
                 // $event->sheet->setCellValue('E27', '=SUM(E2:E26)');
 
 
@@ -80,7 +79,7 @@ class ExportStock implements FromView,WithColumnFormatting, WithEvents
             },
         ];
     }
-
+    */
     public function view(): View
     {
         $now = now();

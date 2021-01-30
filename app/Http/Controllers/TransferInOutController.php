@@ -178,6 +178,12 @@ class TransferInOutController extends Controller
         // check enough amount
         $productCheckArray   = $request->product_running_id;
         $amountCheckArray    = $request->amount;
+
+        // check stock enough first
+        //Edit 21Aug19
+
+        // edit 1 OCT 2020 check negative stock out
+        /*
         for ($i = 0; $i < count($productCheckArray); $i++) {
 
            $stockRealTimeByProduct =  StockRealTime::where('product_running_id','=',$productCheckArray[$i])->first();
@@ -188,6 +194,8 @@ class TransferInOutController extends Controller
                 break;
            }
         }
+        */
+        // end edit 1 OCT 2020 check negative stock out
 
 
         if(!$isError){
@@ -403,6 +411,7 @@ class TransferInOutController extends Controller
         $transferInOutArray = TransferInOut::where('document_reference_id','=',$request->document_reference_id)->get();
 
         // check stock enough first
+        // edit 21Aug19
         for ($i = 0; $i < count($transferInOutArray); $i++) {
             // dd($transferInOutArray[$i]->product_running->id);
 
@@ -414,6 +423,7 @@ class TransferInOutController extends Controller
                 break;
             }
         }
+
 
         if(!$isError){
             //update

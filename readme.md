@@ -1,7 +1,9 @@
+Edit 1 oct 2020 _ 21:23
+
 Change git url 
 
 git remote -v 
-git remote set-url origin https://github.com/wkemmachat/mp_kpi_stock_kem.git
+git remote set-url origin https://github.com/wkemmachat/mp_kpi_stock.git
 change
 
 
@@ -42,3 +44,6 @@ php artisan make:model TransferInOut -mcr
 #tinker
 php artisan tinker
 App\Product::find(1)->stock_real_time;
+
+#run
+php artisan serve
