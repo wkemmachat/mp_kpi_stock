@@ -67,6 +67,9 @@ Route::match(['put', 'patch'], '/product/manageProduct/update/{id}','ProductCont
 // Upload
 Route::get('/upload', 'ProductController@upload_index')->name('upload');
 Route::post('/upload', 'ProductController@import')->name('product.import');
+Route::post('/uploadStockRealTime', 'ProductController@stock_real_time_import')->name('product.stock_real_time_import');
+
+
 
 // Transfer_In_not_Approved
 Route::post('/transfer_in_not_approve', 'TransferInOutController@store_in')->name('transfer_in.store_in');

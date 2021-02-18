@@ -2,6 +2,7 @@
     <thead>
         <tr>
             <th>ID</th>
+            <th>Primary Key</th>
             <th>Product ID</th>
             <th>Product Name</th>
             <th>Remark</th>
@@ -17,6 +18,7 @@
         @foreach ($products as $item)
             <tr>
                 <td>{{ $loop->iteration }}</td>
+                <td>{{ $item->id }}</td>
                 <td>{{ $item->productId }}</td>
                 <td>{{ $item->productName }}</td>
                 <td>{{ $item->remark }}</td>

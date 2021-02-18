@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
+use App\StockRealTime;
 use Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use Kamaln7\Toastr\Facades\Toastr;
@@ -9,6 +10,7 @@ use App\Exports\ExportProduct;
 use App\Exports\exportProductCollection;
 use App\Exports\exportProductCollectionQuery;
 use App\Imports\ProductsImport;
+use App\Imports\StockRealTimeImport;
 use Carbon\Carbon;
 use App\Exports\ExportProductView;
 use App\ProductCategory;
@@ -238,6 +240,25 @@ class ProductController extends Controller
         Excel::import(new ProductsImport,request()->file('file'));
         return back();
     }
+
+    public function stock_real_time_import()
+    {
+
+        // delete all in database
+        $stockRealTimeArray = StockRealTime::all();
+
+
+        for ($i = 0; $i < count($stockRealTimeArray); $i++) {
+            // dd($transferInOutArray[$i]->product_running->id);
+            $stockRealTimeArray[$i]->delete();
+
+        }
+
+        Excel::import(new StockRealTimeImport,request()->file('file'));
+        return back();
+    }
+
+
     public function upload_index()
     {
         return view('upload.index');
